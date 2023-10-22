@@ -1,6 +1,10 @@
 package com.playtalk.playtalkapp.domain;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
@@ -8,6 +12,10 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name="users")
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class User {
     @Id
     private String user_id;
