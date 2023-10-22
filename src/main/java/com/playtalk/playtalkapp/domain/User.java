@@ -10,10 +10,10 @@ import java.time.LocalDateTime;
 @Table(name="users")
 public class User {
     @Id
+    @Column
     private String user_id;
     @Column(name="pw",nullable=false)//null을 허용하지 않는다.
     private String pw;
-
     private String nkname;
     private String email;
     private String phone_number;
