@@ -28,4 +28,8 @@ public class CommReplies {
     @Column(name="parent_cr_id")
     private int parent_cr_id;
 
+    @ManyToOne
+    @JoinColumn(name = "comm_id")
+    private Community community;
+
 }

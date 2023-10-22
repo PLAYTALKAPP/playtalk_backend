@@ -20,4 +20,9 @@ public class CommImgs {
     @Column(name="img_main")
     private Boolean img_main;
 
+    @ManyToOne
+    @JoinColumn(name = "comm_id")
+    private Community community;
+
+
 }
