@@ -24,5 +24,4 @@ public class CommImgs {
     @JoinColumn(name = "comm_id")
     private Community community;
 
-
 }

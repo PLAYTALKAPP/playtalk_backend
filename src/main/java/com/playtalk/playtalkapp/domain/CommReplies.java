@@ -31,5 +31,4 @@ public class CommReplies {
     @ManyToOne
     @JoinColumn(name = "comm_id")
     private Community community;
-
 }

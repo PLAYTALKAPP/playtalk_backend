@@ -32,6 +32,4 @@ public class Community {
     @OneToMany(mappedBy = "comm_img_id") // "user"는 Post 엔티티의 user 필드와 연결
     private List<CommImgs> commImgs ;
 
-
-
 }
