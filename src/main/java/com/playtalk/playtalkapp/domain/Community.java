@@ -1,15 +1,22 @@
 package com.playtalk.playtalkapp.domain;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name="community")
 public class Community {
     @Id
     @Column(name="comm_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int comm_id;
     @Column(name="user_id",nullable=false)
     private String user_id;

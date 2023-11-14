@@ -1,8 +1,14 @@
 package com.playtalk.playtalkapp.domain;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name="comm_imgs")
 public class CommImgs {
 
