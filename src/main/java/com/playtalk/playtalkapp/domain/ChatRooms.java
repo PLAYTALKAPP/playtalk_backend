@@ -29,7 +29,6 @@ public class ChatRooms {
     @Column(name="update_time",nullable=false)
     private LocalDateTime update_time;
 
-
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;

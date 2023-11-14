@@ -20,7 +20,7 @@ public class User {
     @CreationTimestamp
     private LocalDateTime signup_date;
     //Status
-
+    private GradeType grade;
     private String email_check_code;
 
     //만약에 autoIncrement가 있는 컬럼인경우

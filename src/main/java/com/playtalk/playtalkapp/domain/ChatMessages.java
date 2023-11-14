@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-import java.util.List;
+
 @Entity
 @Getter
 @NoArgsConstructor
@@ -26,12 +26,11 @@ public class ChatMessages {
     @Column(name="content",nullable=false)
     private String content ;
 
-    @Convert(converter = StatusTypeConverter.class)
+   @Enumerated
     @Column(name="status",nullable=false)
     private StatusType status;
     @Column(name="post_time",nullable=false)
     private LocalDateTime post_time;
-
 
     @OneToOne
     @JoinColumn(name = "user_id")
@@ -42,11 +41,3 @@ public class ChatMessages {
     private ChatRooms chatRoom;
 }
 
-@Getter
-enum StatusType{
-    Enter("enter"),Leave("leave"),Chat("chat");
-    private String status;
-    StatusType(String status){
-        this.status = status;
-    }
-}
