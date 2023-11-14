@@ -33,10 +33,10 @@ public class Community {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(mappedBy = "comm_reply_id") // "user"는 Post 엔티티의 user 필드와 연결
+    @OneToMany(mappedBy = "comm_reply_id")
     private List<CommReplies> commReplies;
 
-    @OneToMany(mappedBy = "comm_img_id") // "user"는 Post 엔티티의 user 필드와 연결
+    @OneToMany(mappedBy = "comm_img_id")
     private List<CommImgs> commImgs ;
 
 }

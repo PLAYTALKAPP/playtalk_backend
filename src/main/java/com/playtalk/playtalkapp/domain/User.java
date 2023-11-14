@@ -2,8 +2,10 @@ package com.playtalk.playtalkapp.domain;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.expression.spel.ast.Assign;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 
 @Entity
@@ -23,7 +25,17 @@ public class User {
     private GradeType grade;
     private String email_check_code;
 
-    //만약에 autoIncrement가 있는 컬럼인경우
+
+    @OneToMany(mappedBy = "user_id")
+    private List<ChatRooms> chatRooms;
+
+    @OneToMany(mappedBy = "user_id")
+    private List<Assign> assigns;
+
+
+
+
+//만약에 autoIncrement가 있는 컬럼인경우
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
 //    private int index;
 
