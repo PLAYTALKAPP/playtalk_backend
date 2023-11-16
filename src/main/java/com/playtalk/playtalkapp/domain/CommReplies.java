@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -29,7 +28,7 @@ public class CommReplies {
     @JoinColumn(name = "comm_id")
     private Community community;
 
-    @OneToMany(mappedBy = "commReplies", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "commReplies", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<CommReplyImg> commReplyImg ;
 
 }
