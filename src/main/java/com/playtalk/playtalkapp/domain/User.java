@@ -29,20 +29,17 @@ public class User {
     private String phone_number;
     @CreationTimestamp
     private LocalDateTime signup_date;
+    @Enumerated(EnumType.STRING)
     private GradeType grade;
     private String email_check_code;
 
-    @OneToMany(mappedBy = "user_id")
-    private List<ChatRooms> chatRooms;
 
-    @OneToMany(mappedBy = "user_id")
-    private List<Assign> assigns;
+//    @OneToMany(mappedBy = "user_id")
+//    private List<Assign> assigns;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY) // 클래스간의 양방향관계. 관계 주인(외래키 관리 주인)이 아닌 엔티티 클래스명 -> mappedBy = 엔티티 클래스명 // getNoticeList 할때 조인 (조회할때 조인 _ 지연로딩)
     private List<Notice> noticeList;
   
-   @OneToMany(mappedBy = "user", fetch = FetchType.LAZY) // 클래스간의 양방향관계. 관계 주인(외래키 관리 주인)이 아닌 엔티티 클래스명 -> mappedBy = 엔티티 클래스명 // getNoticeList 할때 조인 (조회할때 조인 _ 지연로딩)
-    private List<Community> communities;
 
 }
 

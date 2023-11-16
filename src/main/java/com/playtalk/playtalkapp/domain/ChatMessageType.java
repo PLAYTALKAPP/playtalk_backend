@@ -5,6 +5,8 @@ import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public enum StatusType {
-    Enter, Leave, Chat;
+public enum ChatMessageType {
+    CHAT,
+    ENTER,
+    EXIT,
 }

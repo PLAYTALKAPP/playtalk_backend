@@ -4,8 +4,11 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -13,28 +16,20 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Table(name="comm_replies")
 public class CommReplies {
-
     @Id
-    @Column(name="comm_reply_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int comm_reply_id;
-
-    @Column(name="comm_id",nullable=false)
-    private int comm_id;
-
-    @Column(name="user_id",nullable=false)
-    private String user_id;
-
-    @Column(name = "content", nullable = false)
+    private Long comm_reply_id;
+    @Column(nullable = false)
     private String content;
-
-    @Column(name="post_time",nullable=false)
+    @CreationTimestamp
     private LocalDateTime post_time;
-
-    @Column(name="parent_cr_id")
     private int parent_cr_id;
 
     @ManyToOne
     @JoinColumn(name = "comm_id")
     private Community community;
+
+    @OneToMany(mappedBy = "commReplies", fetch = FetchType.LAZY)
+    private List<CommReplyImg> commReplyImg ;
+
 }

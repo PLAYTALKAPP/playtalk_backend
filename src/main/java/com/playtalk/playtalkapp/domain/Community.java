@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -12,31 +13,24 @@ import java.util.List;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="community")
 public class Community {
     @Id
-    @Column(name="comm_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int comm_id;
-    @Column(name="user_id",nullable=false)
-    private String user_id;
-    @Column(name="title",nullable=false)
+    private Long comm_id;
+    @Column(nullable = false)
     private String title;
-    @Column(name="content",nullable=false)
+    @Column(nullable = false)
     private String content;
-    @Column(name="view_count",columnDefinition = "INT UNSIGNED DEFAULT 0")
-    private int view_count;
-    @Column(name="post_time",nullable=false)
+    @Column(columnDefinition = "INT UNSIGNED DEFAULT 0")
+    private Long view_count;
+    @CreationTimestamp
     private LocalDateTime post_time;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
-
-    @OneToMany(mappedBy = "comm_reply_id")
+    @OneToMany(mappedBy = "community", fetch = FetchType.LAZY)
     private List<CommReplies> commReplies;
-
-    @OneToMany(mappedBy = "comm_img_id")
-    private List<CommImgs> commImgs ;
-
+    @OneToMany(mappedBy = "community", fetch = FetchType.LAZY)
+    private List<CommImgs> commImgs;
 }

@@ -5,23 +5,20 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="comm_imgs")
-public class CommImgs {
+public class ChatRoom {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long img_id;
-    @Column(nullable = false)
-    private String img_path;
-    private boolean img_main;
+    private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "comm_id")
-    private Community community;
+    @OneToMany(mappedBy = "chatRoom", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<ChatMessage> messages = new ArrayList<>();
 
 }
