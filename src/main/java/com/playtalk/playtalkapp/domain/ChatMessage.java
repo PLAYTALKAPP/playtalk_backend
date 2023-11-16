@@ -16,14 +16,6 @@ public class ChatMessage {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "chat_room_id")
-    private ChatRoom chatRoom;
-
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User sender;
-
     private String content;
 
     private LocalDateTime timestamp;
@@ -31,5 +23,12 @@ public class ChatMessage {
     @Enumerated(EnumType.STRING)
     private ChatMessageType messageType;
 
+    @ManyToOne
+    @JoinColumn(name = "chat_room_id")
+    private ChatRoom chatRoom;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User sender;
 
 }

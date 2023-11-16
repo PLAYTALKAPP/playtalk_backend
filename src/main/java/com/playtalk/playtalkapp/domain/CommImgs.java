@@ -22,5 +22,4 @@ public class CommImgs {
     @ManyToOne
     @JoinColumn(name = "comm_id")
     private Community community;
-
 }

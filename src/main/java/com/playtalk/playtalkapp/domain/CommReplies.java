@@ -30,5 +30,4 @@ public class CommReplies {
 
     @OneToMany(mappedBy = "commReplies", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<CommReplyImg> commReplyImg ;
-
 }

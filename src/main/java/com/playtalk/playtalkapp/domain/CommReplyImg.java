@@ -23,5 +23,4 @@ public class CommReplyImg {
     @ManyToOne
     @JoinColumn(name = "comm_reply_id", insertable = false, updatable = false)
     private CommReplies commReplies;
-
 }

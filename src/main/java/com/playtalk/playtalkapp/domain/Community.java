@@ -32,4 +32,5 @@ public class Community {
     private List<CommReplies> commReplies;
     @OneToMany(mappedBy = "community",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<CommImgs> commImgs;
+
 }
