@@ -33,9 +33,12 @@ public class User {
     private String email_check_code;
 
 
-//    @OneToMany(mappedBy = "user_id")
-//    private List<Assign> assigns;
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "user",fetch = FetchType.LAZY)
+    private List<Assign> assigns;
+//    @OneToOne(mappedBy = "user",fetch = FetchType.LAZY)
+//    private AssignReply assignReply;
+    @OneToMany( fetch = FetchType.LAZY)
+    @JoinColumn(name="user_id")
     private List<ChatRoom> ChatRoomList;
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<Community> commList;

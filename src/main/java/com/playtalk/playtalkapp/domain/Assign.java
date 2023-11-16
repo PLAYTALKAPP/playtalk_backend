@@ -31,7 +31,7 @@ public class Assign {
   @Column(name = "play_date", nullable = false)
   private Timestamp play_date;
 
-  @Enumerated(EnumType.STRING)
+
   @Column(name = "seat_grade", nullable = false)
   private String seat_grade;
 

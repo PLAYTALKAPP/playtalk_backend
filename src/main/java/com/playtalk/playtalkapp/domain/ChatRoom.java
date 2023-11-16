@@ -21,7 +21,8 @@ public class ChatRoom {
     private Long cr_id;
 
     @OneToMany(mappedBy = "chatRoom", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<ChatMessage> messages = new ArrayList<>();
+    private List<ChatMessage> messages ;
+
 
     //생성시간 (채팅방 처음 개설 시간)
     @CreationTimestamp

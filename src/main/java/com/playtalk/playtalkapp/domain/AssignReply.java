@@ -1,10 +1,16 @@
 package com.playtalk.playtalkapp.domain;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import java.time.LocalDateTime;
 
 @Entity
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "assign_reply")
 public class AssignReply {
 
@@ -17,7 +23,7 @@ public class AssignReply {
   private LocalDateTime post_time;
 
   @OneToOne
-  @JoinColumn(mappedBy = "user")
+  @JoinColumn(name = "user_id")
   private User user;
 
   @ManyToOne
