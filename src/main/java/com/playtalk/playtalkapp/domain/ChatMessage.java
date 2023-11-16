@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 @Entity
@@ -14,21 +15,22 @@ public class ChatMessage {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long cm_id;
 
     private String content;
 
-    private LocalDateTime timestamp;
+    @CreationTimestamp
+    private LocalDateTime post_time;
 
     @Enumerated(EnumType.STRING)
-    private ChatMessageType messageType;
+    private ChatMessageType message_type = ChatMessageType.ENTER;
 
     @ManyToOne
-    @JoinColumn(name = "chat_room_id")
+    @JoinColumn(name = "cr_id")
     private ChatRoom chatRoom;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User sender;
-
+        // SELECT distinct cr_id FROM CHATMESSAGE WHERE user_id = #user_id;
 }

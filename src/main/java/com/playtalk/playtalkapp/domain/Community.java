@@ -24,6 +24,8 @@ public class Community {
     private Long view_count;
     @CreationTimestamp
     private LocalDateTime post_time;
+    @Enumerated(EnumType.STRING)
+    private CommCategory category = CommCategory.잡담;
 
     @ManyToOne
     @JoinColumn(name = "user_id")

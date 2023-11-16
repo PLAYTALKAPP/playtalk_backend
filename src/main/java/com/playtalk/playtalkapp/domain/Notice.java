@@ -28,7 +28,7 @@ public class Notice {
     @ManyToOne // notice 입장에서 notice : user (다대일)
     @JoinColumn(name = "user_id") // user_id 라는 이름으로 todo 테이블에 필드 생성
     private User user;
-    @OneToMany(mappedBy = "notice", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "notice",cascade = CascadeType.ALL,  fetch = FetchType.LAZY)
     private List<NoticeImg> noticeImgs;
 }
 
