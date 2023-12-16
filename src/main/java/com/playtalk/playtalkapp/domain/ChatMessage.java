@@ -12,25 +12,24 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ChatMessage {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long cm_id;
+    private Long cmId;
 
     private String content;
 
     @CreationTimestamp
-    private LocalDateTime post_time;
+    private LocalDateTime postTime;
 
     @Enumerated(EnumType.STRING)
-    private ChatMessageType message_type = ChatMessageType.ENTER;
+    private ChatMessageType messageType = ChatMessageType.ENTER;
 
     @ManyToOne
-    @JoinColumn(name = "cr_id")
+    @JoinColumn(name = "crId")
     private ChatRoom chatRoom;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "userId")
     private User sender;
-        // SELECT distinct cr_id FROM CHATMESSAGE WHERE user_id = #user_id;
+    // SELECT distinct cr_id FROM CHATMESSAGE WHERE user_id = #user_id;
 }

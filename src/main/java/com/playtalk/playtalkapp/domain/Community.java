@@ -16,23 +16,30 @@ public class Community {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long comm_id;
+    private Long commId;
+
     @Column(nullable = false)
     private String title;
+
     @Column(nullable = false)
     private String content;
+
     @Column(columnDefinition = "INT UNSIGNED DEFAULT 0")
-    private Long view_count;
+    private Long viewCount;
+
     @CreationTimestamp
-    private LocalDateTime post_time;
+    private LocalDateTime postTime;
+
     @Enumerated(EnumType.STRING)
     private CommCategory category = CommCategory.잡담;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "userId")
     private User user;
+
     @OneToMany(mappedBy = "community",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<CommReplies> commReplies;
+
     @OneToMany(mappedBy = "community",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<CommImgs> commImgs;
 
