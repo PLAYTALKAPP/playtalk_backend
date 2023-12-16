@@ -35,8 +35,8 @@ public class User {
 
     @OneToMany(mappedBy = "user",fetch = FetchType.LAZY)
     private List<Assign> assigns;
-//    @OneToOne(mappedBy = "user",fetch = FetchType.LAZY)
-//    private AssignReply assignReply;
+    @OneToOne(mappedBy = "user",fetch = FetchType.LAZY)
+    private AssignReply assignReply;
     @OneToMany( fetch = FetchType.LAZY)
     @JoinColumn(name="user_id")
     private List<ChatRoom> ChatRoomList;

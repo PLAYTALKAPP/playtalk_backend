@@ -23,6 +23,10 @@ public class ChatRoom {
     @OneToMany(mappedBy = "chatRoom", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<ChatMessage> messages ;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
 
     //생성시간 (채팅방 처음 개설 시간)
     @CreationTimestamp

@@ -13,6 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Community {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long comm_id;

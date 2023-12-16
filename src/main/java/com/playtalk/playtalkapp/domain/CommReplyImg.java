@@ -12,9 +12,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name="comm_imgs")
 public class CommReplyImg {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long comm_reply_img_id;
+
     @Column(nullable = false)
     private String img_path;
     private boolean img_main;
