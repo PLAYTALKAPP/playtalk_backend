@@ -10,19 +10,19 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="comm_imgs")
 public class CommReplyImg {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long comm_reply_img_id;
+    private Long commReplyImgId;
+
 
     @Column(nullable = false)
-    private String img_path;
-    private boolean img_main;
+    private String imgPath;
 
+    private boolean imgMain;
 
     @ManyToOne
-    @JoinColumn(name = "comm_reply_id", insertable = false, updatable = false)
+    @JoinColumn(name = "commReplyId", insertable = false, updatable = false)
     private CommReplies commReplies;
 }

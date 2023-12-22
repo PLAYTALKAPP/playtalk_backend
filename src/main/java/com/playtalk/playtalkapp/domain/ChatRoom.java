@@ -15,10 +15,9 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ChatRoom {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long cr_id;
+    private Long crId;
 
     @OneToMany(mappedBy = "chatRoom", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<ChatMessage> messages ;
@@ -27,12 +26,11 @@ public class ChatRoom {
     @JoinColumn(name = "user_id")
     private User user;
 
-
     //생성시간 (채팅방 처음 개설 시간)
     @CreationTimestamp
-    private LocalDateTime create_time;
+    private LocalDateTime createTime;
 
     //채팅 개설 후 날짜 변경 리셋
     @CreationTimestamp
-    private LocalDateTime update_time;
+    private LocalDateTime updateTime;
 }

@@ -13,19 +13,21 @@ import java.util.List;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="comm_replies")
 public class CommReplies {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long comm_reply_id;
+    private Long commReplyId;
+
     @Column(nullable = false)
     private String content;
+
     @CreationTimestamp
-    private LocalDateTime post_time;
-    private Long parent_cr_id;
+    private LocalDateTime postTime;
+
+    private int parentCrId;
 
     @ManyToOne
-    @JoinColumn(name = "comm_id")
+    @JoinColumn(name = "commId")
     private Community community;
 
     @OneToMany(mappedBy = "commReplies", cascade = CascadeType.ALL, fetch = FetchType.LAZY)

@@ -10,16 +10,17 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="comm_imgs")
 public class CommImgs {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long img_id;
+    private Long imgId;
+
     @Column(nullable = false)
-    private String img_path;
-    private boolean img_main;
+    private String imgPath;
+
+    private boolean imgMain;
 
     @ManyToOne
-    @JoinColumn(name = "comm_id")
+    @JoinColumn(name = "commId")
     private Community community;
 }
