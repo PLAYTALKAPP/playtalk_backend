@@ -22,7 +22,7 @@ public class CommReplies {
     private String content;
     @CreationTimestamp
     private LocalDateTime post_time;
-    private int parent_cr_id;
+    private Long parent_cr_id;
 
     @ManyToOne
     @JoinColumn(name = "comm_id")
