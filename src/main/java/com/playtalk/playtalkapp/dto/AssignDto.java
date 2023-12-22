@@ -1,4 +1,4 @@
-package com.playtalk.playtalkapp.dto.assign;
+package com.playtalk.playtalkapp.dto;
 
 import lombok.Data;
 

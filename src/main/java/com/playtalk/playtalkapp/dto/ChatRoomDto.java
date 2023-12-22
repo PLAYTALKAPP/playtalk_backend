@@ -1,6 +1,5 @@
-package com.playtalk.playtalkapp.dto.assign;
+package com.playtalk.playtalkapp.dto;
 
-import com.playtalk.playtalkapp.dto.user.UserDto;
 import lombok.Data;
 
 import java.time.LocalDate;
