@@ -22,7 +22,7 @@ public class AssignReply {
   @CreationTimestamp
   private LocalDateTime post_time;
 
-  @OneToOne
+  @ManyToOne
   @JoinColumn(name = "user_id")
   private User user;
 

@@ -1,5 +1,6 @@
 package com.playtalk.playtalkapp.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,7 +27,7 @@ public class Notice {
     @CreationTimestamp
     private LocalDateTime postTime;
     @ManyToOne // notice 입장에서 notice : user (다대일)
-    @JoinColumn(name = "user_id") // user_id 라는 이름으로 todo 테이블에 필드 생성
+    @JoinColumn(name = "user_id") //
     private User user;
     @OneToMany(mappedBy = "notice",cascade = CascadeType.ALL,  fetch = FetchType.LAZY)
     private List<NoticeImg> noticeImgs;
