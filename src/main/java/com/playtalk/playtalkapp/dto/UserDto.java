@@ -16,10 +16,10 @@ public class UserDto {
     private LocalDateTime signupDate;
     private GradeType grade = GradeType.User;
     private String emailCheckCode;
-    private List<AssignDto> assings;
-    private AssignReplyDto assignReply;
-    private List<ChatRoomDto> chatRoomList;
-    private List<CommunityDto> communityList;
-    private List<NoticeDto> noticeList;
+//    private List<AssignDto> assings;
+//    private AssignReplyDto assignReply;
+//    private List<ChatRoomDto> chatRoomList;
+//    private List<CommunityDto> communityList;
+//    private List<NoticeDto> noticeList;
 
 }

@@ -1,5 +1,6 @@
 package com.playtalk.playtalkapp.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -33,8 +34,9 @@ public class Community {
     @Enumerated(EnumType.STRING)
     private CommCategory category = CommCategory.잡담;
 
+    @JsonBackReference
     @ManyToOne
-    @JoinColumn(name = "userId")
+    @JoinColumn(name = "user_id")
     private User user;
 
     @OneToMany(mappedBy = "community",cascade = CascadeType.ALL, fetch = FetchType.LAZY)

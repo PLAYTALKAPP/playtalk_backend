@@ -1,5 +1,6 @@
 package com.playtalk.playtalkapp.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,6 +23,7 @@ public class AssignReply {
   @CreationTimestamp
   private LocalDateTime post_time;
 
+  @JsonBackReference
   @ManyToOne
   @JoinColumn(name = "user_id")
   private User user;

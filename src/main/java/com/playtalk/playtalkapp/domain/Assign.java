@@ -1,5 +1,6 @@
 package com.playtalk.playtalkapp.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -60,6 +61,7 @@ public class Assign {
   private String img_path;
 
   @ManyToOne
+  @JsonBackReference
   @JoinColumn(name = "user_id")
   private User user;
 

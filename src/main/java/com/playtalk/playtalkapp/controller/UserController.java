@@ -22,9 +22,9 @@ public class UserController {
 
 
     @GetMapping("/api/user")
-    public ResponseEntity<List<User>> list (){
-        List<User> userList = userService.list();
-//        List<UserDto> userList = userService.list();
+    public ResponseEntity<List<UserDto>>list (){
+//        List<User> userList = userService.list();
+        List<UserDto> userList = userService.list();
 
         return ResponseEntity.ok().body(userList);
     }

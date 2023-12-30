@@ -1,5 +1,6 @@
 package com.playtalk.playtalkapp.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -18,17 +19,24 @@ public class Notice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long noticeId;
+
     @Column(nullable = false)
     private String title;
+
     @Column(nullable = false)
     private String content;
+
     @Column(columnDefinition = "INT UNSIGNED DEFAULT 0")
     private Long viewCount;
+
     @CreationTimestamp
     private LocalDateTime postTime;
+
+    @JsonBackReference
     @ManyToOne // notice 입장에서 notice : user (다대일)
     @JoinColumn(name = "user_id") //
     private User user;
+
     @OneToMany(mappedBy = "notice",cascade = CascadeType.ALL,  fetch = FetchType.LAZY)
     private List<NoticeImg> noticeImgs;
 }

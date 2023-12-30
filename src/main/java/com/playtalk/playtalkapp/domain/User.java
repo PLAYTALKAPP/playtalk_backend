@@ -1,6 +1,7 @@
 package com.playtalk.playtalkapp.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -35,23 +36,23 @@ public class User {
 
 
     @OneToMany(mappedBy = "user",fetch = FetchType.LAZY)
-    @JsonIgnore
+    @JsonManagedReference
     private List<Assign> assigns;
 
     @OneToMany(mappedBy = "user",fetch = FetchType.LAZY)
-    @JsonIgnore
+    @JsonManagedReference
     private List<AssignReply> assignReply;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-    @JsonIgnore
+    @JsonManagedReference
     private List<ChatRoom> ChatRoomList;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-    @JsonIgnore
+    @JsonManagedReference
     private List<Community> commList;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY) // 클래스간의 양방향관계. 관계 주인(외래키 관리 주인)이 아닌 엔티티 클래스명 -> mappedBy = 엔티티 클래스명 // getNoticeList 할때 조인 (조회할때 조인 _ 지연로딩)
-    @JsonIgnore
+    @JsonManagedReference
     private List<Notice> noticeList;
   
     //@JsonManagedReference와 @JsonBackReference 사용:
