@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 
 @Service
 @Transactional
-public class UserService {
+public class UserService  {
 
     @Autowired
     private UserRepository userRepository;
@@ -39,5 +39,9 @@ public class UserService {
         userDto.setNkname(user.getNkname());
         // 다른 필드들도 필요한 경우 추가
         return userDto;
+    }
+
+    public  UserDto getUserDto(User user) {
+        return convertToDto(user);
     }
 }

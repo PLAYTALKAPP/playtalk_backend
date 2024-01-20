@@ -15,5 +15,7 @@ public interface UserRepository extends JpaRepository<User,Long> {
 
 
     List<User> findAll(); //전체 리스트 출력
+//    List<User> findByCommId(Long userId);
+
 }
 

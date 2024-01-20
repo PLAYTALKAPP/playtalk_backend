@@ -18,10 +18,10 @@ public class AssignReply {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "assign_reply_id")
-  private Long assign_reply_id;
+  private Long assignReplyId;
 
   @CreationTimestamp
-  private LocalDateTime post_time;
+  private LocalDateTime postTime;
 
   @JsonBackReference
   @ManyToOne
@@ -29,7 +29,7 @@ public class AssignReply {
   private User user;
 
   @ManyToOne
-  @JoinColumn(name = "assign_id")
+  @JoinColumn(name = "assignId")
   private Assign assign;
 
 }
