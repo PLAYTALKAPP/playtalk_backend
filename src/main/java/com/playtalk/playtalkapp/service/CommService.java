@@ -19,6 +19,9 @@ public class CommService {
     @Autowired
     CommRepository commRepository;
 
+    @Autowired
+    UserService userService;
+
     public List<CommunityDto> list(){
         List<Community> commList = commRepository.findAll();
 
@@ -34,10 +37,9 @@ public class CommService {
         commDto.setViewCount(community.getViewCount());
         commDto.setPostTime(community.getPostTime());
         commDto.setCategory(community.getCategory());
-//        User userEntity = commRepository.findBycommId(community.getCommId());
-//        UserDto user = new UserDto();
-//        user.setUserId(userEntity.getUserId());
-//        commDto.setUser(user);
+        User user = community.getUser();
+        UserDto userDto = userService.getUserDto(user);
+        commDto.setUser(userDto);
         return commDto;
     }
 

@@ -15,50 +15,47 @@ import java.util.List;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "assign")
 public class Assign {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name = "assign_id", nullable = false)
-  private Long assign_id;
+  @Column(nullable = false)
+  private Long assignId;
 
-  @Column(name = "title", nullable = false)
+  @Column(nullable = false)
   private String title;
 
-  @Column(name = "play_area", nullable = false)
-  private String play_area;
+  @Column(nullable = false)
+  private String playArea;
 
-  @Column(name = "play_date", nullable = false)
-  private Timestamp play_date;
+  @Column(nullable = false)
+  private Timestamp playDate;
 
 
-  @Column(name = "seat_grade", nullable = false)
-  private String seat_grade;
+  @Column(nullable = false)
+  private String seatGrade;
 
-  @Column(name = "seat", nullable = false)
+  @Column(nullable = false)
   private String seat;
 
-  @Column(name = "cast", nullable = false)
+  @Column(nullable = false)
   private String cast;
 
-  @Column(name = "sale_code", nullable = false)
-  private String sale_code;
+  @Column(nullable = false)
+  private String saleCode;
 
-  @Column(name = "price", nullable = false)
+  @Column(nullable = false)
   private Integer price;
 
-  @Column(name = "etc")
   private String etc;
 
-  @Column(name = "assign_YN", nullable = false)
-  private Boolean assign_YN;
+  @Column(nullable = false)
+  private Boolean assignYN;
 
   @CreationTimestamp
-  private LocalDateTime post_time;
+  private LocalDateTime postTime;
 
-  @Column(name = "img_path")
-  private String img_path;
+  private String imgPath;
 
   @ManyToOne
   @JsonBackReference
