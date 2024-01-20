@@ -40,4 +40,8 @@ public class UserService  {
         // 다른 필드들도 필요한 경우 추가
         return userDto;
     }
+
+    public  UserDto getUserDto(User user) {
+        return convertToDto(user);
+    }
 }
